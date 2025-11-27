@@ -1,0 +1,257 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, "Noto Sans", "PingFang SC", "Microsoft YaHei",
+        sans-serif;
+}
+
+body {
+    overflow: hidden;
+}
+
+#app {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* 左侧面板 */
+#sidebar {
+    width: 360px;
+    min-width: 320px;
+    max-width: 420px;
+    height: 100%;
+    padding: 16px 18px;
+    background: #f7f7fb;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* 顶部标题 */
+.sidebar-header h1 {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+.sidebar-header .subtitle {
+    font-size: 13px;
+    color: #666;
+}
+
+/* 国家选择 */
+.country-selector {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 10px 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    height: 40%;
+    min-height: 220px;
+}
+
+.selector-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    gap: 8px;
+    font-size: 14px;
+}
+
+#countrySearch {
+    flex: 1;
+    padding: 4px 8px;
+    border-radius: 16px;
+    border: 1px solid #ccc;
+    font-size: 13px;
+    outline: none;
+}
+
+#countrySearch:focus {
+    border-color: #409eff;
+}
+
+/* 国家列表 */
+.country-list {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 4px;
+    border-top: 1px solid #eee;
+    margin-top: 6px;
+}
+
+.country-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 4px;
+    border-bottom: 1px dashed #eee;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.country-item:hover {
+    background: #f3f7ff;
+}
+
+.country-item.active {
+    background: #e8f1ff;
+    border-left: 3px solid #409eff;
+}
+
+.country-main {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.country-flag {
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+}
+
+.country-name {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.country-corridor-tag {
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 999px;
+    background: #f0f0f0;
+    color: #555;
+}
+
+/* 国家详情 */
+.country-info {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 10px 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.country-info h2 {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.country-info .placeholder {
+    font-size: 13px;
+    color: #777;
+}
+
+.info-section {
+    margin-top: 6px;
+    font-size: 13px;
+}
+
+.info-section .label {
+    color: #666;
+    margin-right: 8px;
+}
+
+.info-section .value {
+    font-weight: 500;
+}
+
+.info-brief {
+    margin-top: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #444;
+    overflow-y: auto;
+}
+
+/* 图例 */
+.legend {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 8px 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    font-size: 13px;
+}
+
+.legend h3 {
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.legend ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.legend-color {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* 右侧地图 */
+#map-container {
+    flex: 1;
+    position: relative;
+    height: 100%;
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+}
+
+/* 底部信息条 */
+#bottom-info {
+    position: absolute;
+    left: 50%;
+    bottom: 12px;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 999px;
+    pointer-events: none;
+}
+
+/* OpenLayers 默认字体 */
+.ol-viewport {
+    font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+
+.country-flag-img {
+    width: 24px;
+    height: 18px;
+    object-fit: cover;
+    border-radius: 2px;
+    margin-right: 6px;
+    box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+

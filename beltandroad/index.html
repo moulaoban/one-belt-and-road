@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>一带一路六大经济走廊 WebGIS - OpenLayers 版</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- OpenLayers 样式 -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/ol@latest/ol.css"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div id="app">
+    <!-- 左侧：国家列表 + 信息 -->
+    <div id="sidebar">
+        <header class="sidebar-header">
+            <h1>一带一路国家浏览</h1>
+            <p class="subtitle">选择国家查看所属经济走廊</p>
+        </header>
+
+        <!-- 国家选择 -->
+        <div class="country-selector">
+            <div class="selector-header">
+                <span>沿线国家列表</span>
+                <input id="countrySearch" type="text" placeholder="按名称筛选..." />
+            </div>
+            <div id="countryList" class="country-list">
+                <!-- 由 JS 动态填充 -->
+            </div>
+        </div>
+
+        <!-- 国家详情 -->
+        <div id="countryInfo" class="country-info">
+            <h2>国家信息</h2>
+            <p class="placeholder">请从左侧列表选择一个国家。</p>
+        </div>
+
+        <!-- 经济走廊图例 -->
+        <div class="legend">
+            <h3>六大经济走廊</h3>
+            <ul id="corridorLegend">
+                <!-- JS 注入颜色块和名称 -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- 右侧：地图 -->
+    <div id="map-container">
+        <div id="map" class="map"></div>
+
+        <!-- 底部信息条 -->
+        
+    </div>
+</div>
+
+<!-- OpenLayers JS -->
+<script src="https://cdn.jsdelivr.net/npm/ol@latest/dist/ol.js"></script>
+
+<script src="js/main.js"></script>
+</body>
+</html>
